@@ -20,11 +20,23 @@ Identificar os padrões de mercado para o segmento de jogos e responder aos ques
 
 ## 📊 Análises Realizadas
 
-- Top 10 jogos mais vendidos
+- Top 5 jogos mais vendidos
 - Distribuição de vendas por região (América do Norte, Europa, Japão e Outras Regiões)
-- Vendas por gênero e plataforma (Geral e Nintendo)
+- Vendas por gênero e plataforma
 - Evolução de vendas ao longo dos anos
 
+## 📅 Fonte dos Dados
+
+[Kaggle - Video Games Sales Dataset](https://www.kaggle.com/datasets/sidtwr/videogames-sales-dataset)
+
+## 🎓 Autor
+
+Jeferson da Silva Carmo - [LinkedIn](https://www.linkedin.com/in/jefersondasilvacarmo)
+
+---
+
+Sinta-se à vontade para contribuir ou dar feedback!
+<!---
 ## 📁 Como executar
 
 1. Clone este repositório:
