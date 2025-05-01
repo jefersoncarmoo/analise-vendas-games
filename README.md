@@ -62,6 +62,3 @@ pip install -r requirements.txt
 Jeferson da Silva Carmo - [LinkedIn](https://www.linkedin.com/in/jefersondasilvacarmo)
 
 ---
-
-Sinta-se à vontade para contribuir ou dar feedback!
-
