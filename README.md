@@ -1,6 +1,6 @@
 # 🎮 Análise de Vendas de Video Games com Python
 
-Este projeto apresenta análise exploratória e visual de dados de vendas de jogos eletrônicos utilizando Python. A base de dados utilizada possui informações como nome do jogo, gênero, plataforma, ano de lançamento e vendas por região.
+Este projeto apresenta análise exploratória e visual de dados de vendas de jogos eletrônicos utilizando Python e suas bibliotecas de modelagens e análises graficas. A base de dados utilizada possui informações como nome do jogo, gênero, plataforma, ano de lançamento e vendas por região.
 
 ## 🔍 Objetivo
 
@@ -20,9 +20,8 @@ Identificar os padrões de mercado para o segmento de jogos e responder aos ques
 
 ## 📊 Análises Realizadas
 
-- Top 5 jogos mais vendidos
+- Top 5 jogos, plataformas, gêneros e publicadoras com mais vendas
 - Distribuição de vendas por região (América do Norte, Europa, Japão e Outras Regiões)
-- Vendas por gênero e plataforma
 - Evolução de vendas ao longo dos anos
 
 ## 📅 Fonte dos Dados
