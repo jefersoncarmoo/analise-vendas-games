@@ -25,7 +25,7 @@ Identificar os padrões de mercado para o segmento de jogos e responder aos ques
 - Evolução de vendas ao longo dos anos
 
 ## 🖼️ Relatório Final
-![Foto do projeto final](https://i.imgur.com/hIs93CA.png)
+![Foto do projeto final](https://i.imgur.com/PBXMs7I.png)
 
 ## 📅 Fonte dos Dados
 
