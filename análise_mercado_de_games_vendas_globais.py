@@ -83,12 +83,16 @@ plt.title('Top 5 Jogos mais vendidos globalmente', loc='left', fontsize=14)
 
 #Gráfico de barras usando as vendas globais de jogos
 ax = sns.barplot(data=Analise_Jogos.head(5), x='Nome', y='Vendas_Global', ci=None, color=Paleta_Cores[0], estimator=sum)
-ax.bar_label(ax.containers[0], fmt='%.0f', fontsize=10)
+ax.bar_label(ax.containers[0], fmt='%.2fM', fontsize=10)
 #Label
-plt.ylabel('Quantidade de vendas (mi)');
+plt.ylabel('Quantidade de vendas (em milhões)');
 
 #Criando um dataframe que agrupa as vendas globais por plataforma
 Analise_Plataformas = Base_Dados.groupby(['Plataforma'])['Vendas_Global'].sum().reset_index()
+
+# Convertendo de milhões para bilhões
+Analise_Plataformas['Vendas_Global'] = Analise_Plataformas['Vendas_Global'] / 1000
+
 #Organizando o dataframe análise em ordem
 Analise_Plataformas.sort_values(by='Vendas_Global', ascending=False, inplace=True)
 Analise_Plataformas.head()
@@ -102,14 +106,18 @@ plt.title('Top 5 plataformas com mais jogos vendidos', loc='left', fontsize=14)
 
 #Gráfico de barras usando as vendas globais por plataformas
 ax = sns.barplot(data=Analise_Plataformas.head(5), x='Plataforma', y='Vendas_Global', ci=None, color=Paleta_Cores[3], estimator=sum)
-ax.bar_label(ax.containers[0], fmt='%.0f', fontsize=10)
+ax.bar_label(ax.containers[0], fmt='%.2fB', fontsize=10)
 #Label
-plt.ylabel('Quantidade de vendas (mi)');
+plt.ylabel('Quantidade de vendas (em bilhões)');
 
 #Criando um dataframe que agrupa as vendas globais de jogos por gênero
 Analise_Generos = Base_Dados.groupby(['Genero'])['Vendas_Global'].sum().reset_index()
 #Organizando o dataframe análise em ordem
 Analise_Generos.sort_values(by='Vendas_Global', ascending=False, inplace=True)
+
+# Convertendo de milhões para bilhões
+Analise_Generos['Vendas_Global'] = Analise_Generos['Vendas_Global'] / 1000
+
 Analise_Generos.reset_index(drop=True, inplace=True)
 Analise_Generos.head()
 
@@ -117,13 +125,13 @@ Analise_Generos.head()
 plt.figure(figsize=(15,5))
 
 #Título
-plt.title('Vendas por gênero (1980 a 2020)', loc='left', fontsize=14)
+plt.title('Top 5 Gêneros mais vendidos', loc='left', fontsize=14)
 
 #Gráfico de barras usando as vendas por gênero
 ax = sns.barplot(data=Analise_Generos.head(5), x='Genero', y='Vendas_Global', ci=None, color=Paleta_Cores[2], estimator=sum)
-ax.bar_label(ax.containers[0], fmt='%.0f', fontsize=10)
+ax.bar_label(ax.containers[0], fmt='%.2fB', fontsize=10)
 #Label
-plt.ylabel('Quantidade de vendas (mi)');
+plt.ylabel('Quantidade de vendas (Em bilhões)');
 
 #Criando um dataframe que agrupa as vendas globais por publicadora
 Analise_Publicadoras = Base_Dados.groupby(['Publicadora'])['Vendas_Global'].sum().reset_index()
@@ -150,10 +158,10 @@ Analise_Global = Base_Dados.groupby(['Ano_Lancamento'])[['Vendas_America_Norte',
 Analise_Global.head()
 
 #Barras do gráfico
-America = Analise_Global['Vendas_America_Norte'].sum()
-Europa = Analise_Global['Vendas_Europa'].sum()
-Japao = Analise_Global['Vendas_Japao'].sum()
-Outras_Regioes = Analise_Global['Vendas_Outras_Regioes'].sum()
+America = Analise_Global['Vendas_America_Norte'].sum()/1000 #America recebera a soma de todas as vendas em Vendas_America_Norte e converte para bilhões
+Europa = Analise_Global['Vendas_Europa'].sum()/1000
+Japao = Analise_Global['Vendas_Japao'].sum()/1000
+Outras_Regioes = Analise_Global['Vendas_Outras_Regioes'].sum()/1000
 
 Largura_Barra = 0.85
 Rotulos = ['América do Norte', 'Europa', 'Japão', 'Outras Regiões']
@@ -167,10 +175,10 @@ plt.title('Vendas de jogos por Região', loc='left', fontsize=14)
 
 for i in range(len(Rotulos)):
     plt.bar(Rotulos[i], Valores[i], label=Rotulos[i], width=Largura_Barra, color=Paleta_Cores[i])
-    plt.text(Rotulos[i], Valores[i] + 1, f'{Valores[i]:.2f}', ha='center', va='bottom', fontsize=10)
+    plt.text(Rotulos[i], Valores[i] + 0, f'{Valores[i]:.2f}B', ha='center', va='bottom', fontsize=10)
 
 plt.xlabel('Região')
-plt.ylabel('Quantidade de vendas (mi)')
+plt.ylabel('Quantidade de vendas (Em bilhões)')
 plt.grid(False);
 
 #Df para armazenar as vendas por publicadoras ao longo dos anos
@@ -230,16 +238,16 @@ Colunas = 2
 plt.subplot(Linhas, Colunas, 1)
 plt.title('Top 5 Jogos mais vendidos globalmente', loc='left', fontsize=14)
 ax = sns.barplot(data=Analise_Jogos.head(5), x='Nome', y='Vendas_Global', ci=None, color=Paleta_Cores[0], estimator=sum)
-ax.bar_label(ax.containers[0], fmt='%.0f', fontsize=10)
-plt.ylabel('Quantidade de vendas (mi)');
+ax.bar_label(ax.containers[0], fmt='%.2fM', fontsize=10)
+plt.ylabel('Quantidade de vendas (Em milhões)');
 
 
 # Acessando gráfico 2
 plt.subplot(Linhas, Colunas, 2)
 plt.title('Top 5 plataformas com mais jogos vendidos', loc='left', fontsize=14)
 ax = sns.barplot(data=Analise_Plataformas.head(5), x='Plataforma', y='Vendas_Global', ci=None, color=Paleta_Cores[3], estimator=sum)
-ax.bar_label(ax.containers[0], fmt='%.0f', fontsize=10)
-plt.ylabel('Quantidade de vendas (mi)')
+ax.bar_label(ax.containers[0], fmt='%.2fB', fontsize=10)
+plt.ylabel('Quantidade de vendas (Em bilhões)')
 
 
 
@@ -247,8 +255,8 @@ plt.ylabel('Quantidade de vendas (mi)')
 plt.subplot(Linhas, Colunas, 3)
 plt.title('Top 5 Gêneros mais vendidos', loc='left', fontsize=14)
 ax = sns.barplot(data=Analise_Generos.head(5), x='Genero', y='Vendas_Global', ci=None, color=Paleta_Cores[2], estimator=sum)
-ax.bar_label(ax.containers[0], fmt='%.0f', fontsize=10)
-plt.ylabel('Quantidade de vendas (mi)')
+ax.bar_label(ax.containers[0], fmt='%.2fB', fontsize=10)
+plt.ylabel('Quantidade de vendas (Em bilhões)')
 
 
 # Acessando gráfico 4
@@ -257,10 +265,10 @@ plt.title('Vendas de jogos por Região', loc='left', fontsize=14)
 
 for i in range(len(Rotulos)):
     plt.bar(Rotulos[i], Valores[i], label=Rotulos[i], width=Largura_Barra, color=Paleta_Cores[i])
-    plt.text(Rotulos[i], Valores[i] + 1, f'{Valores[i]:.2f}', ha='center', va='bottom', fontsize=10)
+    plt.text(Rotulos[i], Valores[i] + 0, f'{Valores[i]:.2f}B', ha='center', va='bottom', fontsize=10)
 
 plt.xlabel('Região')
-plt.ylabel('Quantidade de vendas (mi)')
+plt.ylabel('Quantidade de vendas (Em bilhões)')
 plt.grid(False)
 
 # Acessando gráfico 5
