@@ -24,6 +24,8 @@ Identificar os padrões de mercado para o segmento de jogos e responder aos ques
 - Distribuição de vendas por região (América do Norte, Europa, Japão e Outras Regiões)
 - Evolução de vendas ao longo dos anos
 
+![Foto do projeto final](https://i.imgur.com/hIs93CA.png)
+
 ## 📅 Fonte dos Dados
 
 [Kaggle - Video Games Sales Dataset](https://www.kaggle.com/datasets/sidtwr/videogames-sales-dataset)
