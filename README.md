@@ -29,6 +29,7 @@ Identificar os padrões de mercado para o segmento de jogos e responder aos ques
 
 ## 📅 Fonte dos Dados
 [Google Collab Notebook - Análise Mercado de Games](https://colab.research.google.com/drive/1fjyQ9piBkINNZmrU1-cWNNyWmpm_HbwG?usp=sharing)
+
 [Kaggle - Video Games Sales Dataset](https://www.kaggle.com/datasets/sidtwr/videogames-sales-dataset)
 
 
